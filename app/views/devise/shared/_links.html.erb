@@ -1,0 +1,28 @@
+<%- if controller_name != 'sessions' %>
+  <%= link_to "Entre na sua conta", new_session_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to "Esqueceu sua senha?", new_password_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+  <%= link_to "Não recebeu as instruções de confirmação?", new_confirmation_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <%= link_to "Não recebeu as instruções de desbloqueio?", new_unlock_path(resource_name) %><br />
+<% end %>
+
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "Entrar com sua conta do #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+  <% end %>
+<% end %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <hr />
+  <%= link_to "Quero ser um profissional", new_registration_path(resource_name, type: :professional), class: 'btn btn-primary btn-sm btn-block' %>
+  <%= link_to "Quero ser do R.H.", new_registration_path(resource_name, type: :human_resources), class: 'btn btn-primary btn-sm btn-block' %>
+  <%= link_to "Quero ser um administrador", new_registration_path(resource_name, type: :admin), class: 'btn btn-primary btn-sm btn-block' %>
+<% end %>

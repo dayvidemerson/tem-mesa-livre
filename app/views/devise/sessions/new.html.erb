@@ -1,0 +1,20 @@
+<h5 class="card-title">Entre na sua conta</h5>
+
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.input :username,
+              required: false,
+              autofocus: true,
+              input_html: { autocomplete: "username" } %>
+  <%= f.input :password,
+              required: false,
+              input_html: { autocomplete: "current-password" } %>
+  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+
+  <div class="d-flex justify-content-end">
+    <%= f.button :submit, "Entrar", class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>
+
+<hr />
+
+<%= render "devise/shared/links" %>
