@@ -71,7 +71,7 @@ Rails.application.configure do
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
     :domain         => 'tem-mesa-livre.heroku.com',
-    :authentication => :plain,
+    :authentication => :plain
   }
   config.action_mailer.delivery_method = :smtp
 
