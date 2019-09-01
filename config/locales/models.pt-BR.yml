@@ -6,8 +6,10 @@ pt-BR:
       user:
         username: Nome de usuário
         email: E-mail
-        name: Nome
+        name: Nome / Razão Social
         document_number: CPF / CNPJ
+        identity: R.G.
+        phone: Telefone
         password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Manter-me conectado

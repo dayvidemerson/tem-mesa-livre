@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    params[:type] ||= :professional
+    params[:kind] ||= :professional
     super
   end
 
@@ -43,7 +43,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :document_number, :identity, :phone, :type])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :name, :document_number, :identity, :phone, :kind])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
