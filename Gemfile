@@ -75,3 +75,5 @@ gem "has_scope", "~> 0.7.2"
 
 # Easy customize form
 gem "simple_form", "~> 4.1"
+
+gem "devise-security", "~> 0.14.3"
