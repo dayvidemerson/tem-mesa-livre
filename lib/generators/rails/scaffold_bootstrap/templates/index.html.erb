@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header text-white bg-dark">
+    <%= plural_table_name.titleize %>
+  </div>
+  <div class="card-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>[CAMPO]</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+          <tr>
+            <td>[VALOR]</td>
+            <td>
+              <div class="btn-group">
+                <%%= link_to 'Exibir', <%= model_resource_name %>, class: 'btn btn-warning btn-sm' %>
+                <%%= link_to 'Editar', edit_<%= singular_route_name %>_path(<%= singular_table_name %>), class: 'btn btn-info btn-sm' %>
+                <%%= link_to 'Excluir', <%= model_resource_name %>, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Você tem certeza?' } %>
+              </div>
+            </td>
+          </tr>
+        <%% end %>
+      </tbody>
+    </table>
+
+    <hr />
+
+    <%%= link_to 'Adicionar <%= singular_table_name.titleize %>', new_<%= singular_route_name %>_path, class: 'btn btn-primary btn-sm' %>
+  </div>
+</div>

@@ -75,3 +75,11 @@ gem "has_scope", "~> 0.7.2"
 
 # Easy customize form
 gem "simple_form", "~> 4.1"
+
+gem "devise-security", "~> 0.14.3"
+
+gem "active_link_to", "~> 1.0"
+
+gem "nested_form", "~> 0.3.2"
+
+gem "activestorage-validator", "~> 0.1.3"

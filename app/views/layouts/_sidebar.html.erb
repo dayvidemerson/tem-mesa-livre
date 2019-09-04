@@ -1,0 +1,5 @@
+<div class="list-group mb-4">
+  <%= active_link_to "Lugares", places_path, class: 'list-group-item list-group-item-action' if policy(Place).index? %>
+
+  <%= link_to "Sair", destroy_user_session_path, method: :delete, class: 'list-group-item list-group-item-action', data: { confirm: 'Você tem certeza?' } %>
+</div>

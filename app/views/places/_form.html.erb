@@ -1,0 +1,66 @@
+<div class="card">
+  <div class="card-header text-white bg-dark">
+    <%= action %> lugar
+  </div>
+  <%= simple_nested_form_for @place, html: { role: "form"} do |f| %>
+    <div class="card-body">
+      <%= f.input :description, collection: Place.descriptions.map{ |description| [t(description.first), description.first] } %>
+      <%= f.input :street %>
+      <%= f.input :city %>
+      <%= f.input :state %>
+      <%= f.input :number_of_tables %>
+      <%= f.input :number_of_chairs %>
+      <%= f.input :price_per_hour %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+
+      <%= f.input :photos, input_html: { multiple: true }, hint: 'Selecione vários arquivos, para envio de mais de uma foto.' %>
+      <% if @place.photos.present? %>
+        <hr />
+        <h5 class="card-title">Imagens</h5>
+        <%= f.simple_fields_for :photos_attachments do |photo_form| %>
+          <%= link_to photo_form.object.blob.filename.to_s, url_for(photo_form.object), target: '_blank' %>
+          <%= photo_form.link_to_remove class: 'btn btn-danger btn-sm' do %>
+            X
+          <% end %>
+          <br />
+        <% end %>
+        <hr />
+      <% end %>
+
+      <h5 class="card-title">Horários Disponíveis</h5>
+      <%= f.simple_fields_for :place_schedules do |place_schedule_form| %>
+        <div class="row">
+          <div class="col-sm-5">
+            <%= place_schedule_form.label :weekdays %>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <%= place_schedule_form.input :sunday %>
+              <%= place_schedule_form.input :monday %>
+              <%= place_schedule_form.input :tuesday %>
+              <%= place_schedule_form.input :wednesday %>
+              <%= place_schedule_form.input :thursday %>
+              <%= place_schedule_form.input :friday %>
+              <%= place_schedule_form.input :saturday %>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <%= place_schedule_form.input :start %>
+          </div>
+          <div class="col-sm-3">
+            <%= place_schedule_form.input :end %>
+          </div>
+          <div class="col-sm-1 d-flex justify-content-end align-items-center">
+            <%= place_schedule_form.link_to_remove class: 'btn btn-danger btn-sm' do %>
+              X
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <%= f.link_to_add 'Adicionar horário', :place_schedules, class: 'btn btn-primary btn-sm float-right' %>
+      <div class="clearfix"></div>
+      <hr />
+      <%= f.submit "#{action} lugar", class: 'btn btn-primary btn-sm' %>
+      <%= link_to 'Voltar', places_path, class: 'btn btn-secondary btn-sm' %>
+    </div>
+  <% end %>
+</div

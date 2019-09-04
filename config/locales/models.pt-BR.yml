@@ -2,6 +2,7 @@ pt-BR:
   activerecord:
     models:
       user: Usuário
+      place: Lugar
     attributes:
       user:
         username: Nome de usuário
@@ -13,3 +14,25 @@ pt-BR:
         password: Senha
         password_confirmation: Confirmação de senha
         remember_me: Manter-me conectado
+      place:
+        description: Descrição
+        photos: Fotos
+        street: Logradouro
+        city: Cidade
+        state: Estado
+        number_of_tables: Número de Mesas
+        number_of_chairs: Número de Cadeiras
+        price_per_hour: Preço por Hora
+        start_date: Data Inicial
+        end_date: Data Final
+      place_schedule:
+        weekdays: Dias da Semana
+        sunday: D
+        monday: S
+        tuesday: T
+        wednesday: Q
+        thursday: Q
+        friday: S
+        saturday: S
+        start: Início
+        end: Término

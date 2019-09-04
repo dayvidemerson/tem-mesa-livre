@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :places
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
   devise_scope :user do
     authenticated :user do
-      root 'courses#index', as: :authenticated_root
+      root 'places#index', as: :authenticated_root
     end
   
     unauthenticated do
