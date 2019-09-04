@@ -83,3 +83,5 @@ gem "active_link_to", "~> 1.0"
 gem "nested_form", "~> 0.3.2"
 
 gem "activestorage-validator", "~> 0.1.3"
+
+gem "aws-sdk-s3", "~> 1.48"
