@@ -64,15 +64,13 @@ SimpleForm.setup do |config|
   end
 
   # vertical input for boolean
-  config.wrappers :vertical_boolean, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :vertical_boolean, tag: 'label', class: 'btn btn-secondary btn-sm', valid_class: 'active' do |b|
     b.use :html5
     b.optional :readonly
-    b.wrapper :form_check_wrapper, tag: 'div', class: 'form-check' do |bb|
-      bb.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
-      bb.use :label, class: 'form-check-label'
-      bb.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
-      bb.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
-    end
+    b.use :input, error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :label_text
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
   # vertical input for radio buttons and check boxes

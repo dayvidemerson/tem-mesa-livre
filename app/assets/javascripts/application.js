@@ -14,5 +14,6 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery.min
+//= require jquery_nested_form
 //= require bootstrap.min
 //= require_tree .
