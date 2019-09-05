@@ -4,8 +4,6 @@ class User < ApplicationRecord
 
   enum kind: {admin: 1 , human_resources: 2, professional: 3}
 
-  validates :username, uniqueness: true
-
   validates :username, :name, :document_number, :kind, presence: true
 
   validates :identity, :phone, presence: true, if: :professional?
