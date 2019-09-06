@@ -4,7 +4,7 @@ class ProfessionalPolicy < ApplicationPolicy
       if @user.professional?
         scope.where(user: @user)
       else
-        scope.all
+        scope.actived
       end
     end
   end
