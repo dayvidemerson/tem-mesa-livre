@@ -1,7 +1,14 @@
 class PlacesController < ApplicationController
   before_action :set_place, only: [:show, :edit, :update, :destroy]
   before_action :authorization_base
-  has_scope :q
+  
+  has_scope :with_city
+  has_scope :with_state
+  has_scope :with_occupation
+  has_scope :min_price
+  has_scope :max_price
+  has_scope :min_date
+  has_scope :max_date
 
   # GET /places
   def index
@@ -25,7 +32,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.new(permitted_attributes(Place))
     if @place.save
-      redirect_to @place, notice: '@place foi criado com sucesso!.'
+      redirect_to @place, notice: 'Place foi criado com sucesso!.'
     else
       render :new
     end
@@ -34,7 +41,7 @@ class PlacesController < ApplicationController
   # PATCH/PUT /places/1/edit
   def update
     if @place.update(permitted_attributes(@place))
-      redirect_to @place, notice: '@place foi criado com sucesso!.'
+      redirect_to @place, notice: 'Place foi criado com sucesso!.'
     else
       render :edit
     end
@@ -48,7 +55,7 @@ class PlacesController < ApplicationController
   private
   
   def authorization_base
-    authorize Place, :index?
+    authorize Place
   end
 
   def set_place

@@ -3,6 +3,7 @@ pt-BR:
     models:
       user: Usuário
       place: Lugar
+      professional: Profissional
     attributes:
       user:
         username: Nome de usuário
@@ -27,12 +28,23 @@ pt-BR:
         end_date: Data Final
       place_schedule:
         weekdays: Dias da Semana
-        sunday: D
-        monday: S
-        tuesday: T
-        wednesday: Q
-        thursday: Q
-        friday: S
-        saturday: S
+        sunday: Dom
+        monday: Seg
+        tuesday: Ter
+        wednesday: Qua
+        thursday: Qui
+        friday: Sex
+        saturday: Sáb
         start: Início
         end: Término
+      professional:
+        occupation: Profissão
+        company: Empresa
+        linkedin: Link do Linkedin
+        facebook: Link do Facebook
+        twitter: Link do Twitter
+        cellphone: Celular
+        phone: Telefone Fixo
+        city: Cidade
+        state: Estado
+        active: Ativo

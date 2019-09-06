@@ -25,7 +25,7 @@ class <%= plural_table_name.camelize  %>Controller < ApplicationController
   def create
     @<%= singular_table_name %> = <%= singular_table_name.camelize %>.new(permitted_attributes(<%= singular_table_name.camelize %>))
     if @<%= singular_table_name %>.save
-      redirect_to @<%= singular_table_name %>, notice: '<%= "@#{singular_table_name}" %> foi criado com sucesso!.'
+      redirect_to @<%= singular_table_name %>, notice: '<%= "#{singular_table_name.camelize}" %> foi criado com sucesso!.'
     else
       render :new
     end
@@ -34,7 +34,7 @@ class <%= plural_table_name.camelize  %>Controller < ApplicationController
   # PATCH/PUT /<%= plural_table_name.downcase %>/1/edit
   def update
     if @<%= singular_table_name %>.update(permitted_attributes(@<%= singular_table_name %>))
-      redirect_to @<%= singular_table_name %>, notice: '<%= "@#{singular_table_name}" %> foi criado com sucesso!.'
+      redirect_to @<%= singular_table_name %>, notice: '<%= "#{singular_table_name.camelize}" %> foi criado com sucesso!.'
     else
       render :edit
     end
@@ -49,7 +49,7 @@ class <%= plural_table_name.camelize  %>Controller < ApplicationController
   private
   
   def authorization_base
-    authorize <%= singular_table_name.camelize %>, :index?
+    authorize <%= singular_table_name.camelize %>
   end
 
   def set_<%= singular_table_name %>

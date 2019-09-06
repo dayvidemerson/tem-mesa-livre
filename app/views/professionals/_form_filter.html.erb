@@ -1,0 +1,14 @@
+<%= form_tag( '' , method: :get, class: 'form-row' ) do |f| %>
+  <div class="col-4">
+    <%= text_field_tag :with_city, params[:with_city], class: 'form-control', placeholder: 'Cidade' %>
+  </div>
+  <div class="col-4">
+    <%= text_field_tag :with_state, params[:with_state], class: 'form-control', placeholder: 'Estado' %>
+  </div>
+  <div class="col-4">
+    <%= text_field_tag :with_occupation, params[:with_occupation], class: 'form-control', placeholder: 'Profissão' %>
+  </div>
+  <div class="col-12 mt-2 mb-2">
+    <button type="submit" class="btn btn-primary btn-sm">Pesquisar</button>
+  </div>
+<% end %>

@@ -4,7 +4,7 @@ class PlacePolicy < ApplicationPolicy
     def resolve
       if user.admin?
         scope.all
-      elsif user.human_resources?
+      elsif user.professional?
         scope.all
       else
         scope.none
@@ -13,11 +13,11 @@ class PlacePolicy < ApplicationPolicy
   end
 
   def index?
-    user.admin?
+    user.admin? || @user.professional?
   end
 
   def show?
-    user.admin?
+    user.admin? || @user.professional?
   end
 
   def new?

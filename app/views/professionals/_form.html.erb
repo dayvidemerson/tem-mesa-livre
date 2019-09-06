@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header text-white bg-dark">
+    <%= action %>
+  </div>
+  <%= simple_form_for @professional, url: save_profile_professionals_path do |f| %>
+    <div class="card-body">
+      <%= f.simple_fields_for :user do |u| %>
+        <%= u.input :name, label: 'Nome' %>
+        <%= u.input :email %>
+      <% end %>
+
+      <%= f.input :occupation %>
+      <%= f.input :company %>
+      <%= f.input :linkedin %>
+      <%= f.input :facebook %>
+      <%= f.input :twitter %>
+      <%= f.input :cellphone %>
+      <%= f.input :phone %>
+      <%= f.input :city %>
+      <%= f.input :state %>
+      <%= f.input :active %>
+
+      <hr />
+      <%= f.submit "Salvar", class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
+</div
