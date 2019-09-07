@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     post :save_profile, on: :collection
     put :save_profile, on: :collection
     patch :save_profile, on: :collection
+    post :send_me, on: :member
   end
 
   devise_for :users, controllers: { registrations: 'users/registrations' }

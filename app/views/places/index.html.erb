@@ -4,41 +4,43 @@
   </div>
   <div class="card-body">
     <%= render 'form_filter' %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Descricão</th>
-          <th>Preço/h</th>
-          <th>A partir de:</th>
-          <th>Até:</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Descricão</th>
+            <th>Preço/h</th>
+            <th>A partir de:</th>
+            <th>Até:</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        <% @places.each do |place| %>
-          <tr>
-            <td><%= t place.description %></td>
-            <td><%= place.price_per_hour %></td>
-            <td><%= l place.start_date %></td>
-            <td><%= l place.end_date %></td>
-            <td>
-              <div class="btn-group">
-                <%= link_to 'Exibir', place, class: 'btn btn-warning btn-sm' if policy(Place).show? %>
-                <%= link_to 'Editar', edit_place_path(place), class: 'btn btn-info btn-sm' if policy(Place).edit? %>
-                <%= link_to 'Excluir', place, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Você tem certeza?' }  if policy(Place).destroy? %>
-              </div>
-            </td>
-          </tr>
-        <% end %>
-        <% if @places.empty? %>
-          <tr>
-            <td colspan=2>Não há lugares cadastrados.</td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  
+        <tbody>
+          <% @places.each do |place| %>
+            <tr>
+              <td><%= t place.description %></td>
+              <td><%= place.price_per_hour %></td>
+              <td><%= l place.start_date %></td>
+              <td><%= l place.end_date %></td>
+              <td>
+                <div class="btn-group">
+                  <%= link_to 'Exibir', place, class: 'btn btn-warning btn-sm' if policy(Place).show? %>
+                  <%= link_to 'Editar', edit_place_path(place), class: 'btn btn-info btn-sm' if policy(Place).edit? %>
+                  <%= link_to 'Excluir', place, method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: 'Você tem certeza?' }  if policy(Place).destroy? %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+          <% if @places.empty? %>
+            <tr>
+              <td colspan=2>Não há lugares cadastrados.</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
     <hr />
 
     <%= link_to 'Adicionar Lugar', new_place_path, class: 'btn btn-primary btn-sm' if policy(Place).new? %>

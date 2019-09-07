@@ -25,6 +25,10 @@ class ProfessionalPolicy < ApplicationPolicy
     user.professional?
   end
 
+  def send_me?
+    user.admin? || user.human_resources?
+  end
+
   def permitted_attributes
     [:occupation, :company, :linkedin, :facebook, :twitter, :cellphone, :phone, :city, :state, :active, user_attributes: [:id, :name, :email]]
   end

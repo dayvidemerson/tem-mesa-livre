@@ -1,5 +1,5 @@
 class ProfessionalsController < ApplicationController
-  before_action :set_professional, only: [:show]
+  before_action :set_professional, only: [:show, :send_me]
   before_action :authorization_base
 
   has_scope :with_city
@@ -29,6 +29,12 @@ class ProfessionalsController < ApplicationController
     else
       render :profile
     end
+  end
+
+  # POST /professionals/1/send_me
+  def send_me
+    ProfessionalMailer.with(user: current_user, professional: @professional).send_me.deliver_now
+    redirect_to @professional, notice: 'E-mail enviado com sucesso!'
   end
 
   private

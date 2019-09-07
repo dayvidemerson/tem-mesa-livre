@@ -3,44 +3,46 @@
     Lugar
   </div>
   <div class="card-body">
-    <table class="table">
-      <tr>
-        <th>Descrição</th>
-        <td><%= t @place.description %></td>
-      </tr>
-      <tr>
-        <th>Logradouro</th>
-        <td><%= @place.street %></td>
-      </tr>
-      <tr>
-        <th>Cidade</th>
-        <td><%= @place.city %></td>
-      </tr>
-      <tr>
-        <th>Estado</th>
-        <td><%= @place.state %></td>
-      </tr>
-      <tr>
-        <th>Número de Mesas</th>
-        <td><%= @place.number_of_tables %></td>
-      </tr>
-      <tr>
-        <th>Número de Cadeiras</th>
-        <td><%= @place.number_of_chairs %></td>
-      </tr>
-      <tr>
-        <th>Preço por Hora</th>
-        <td><%= @place.price_per_hour %></td>
-      </tr>
-      <tr>
-        <th>Data Inicial</th>
-        <td><%= l @place.start_date %></td>
-      </tr>
-      <tr>
-        <th>Data Final</th>
-        <td><%= l @place.end_date %></td>
-      </tr>
-    </table>
+    <div class="table-responsive">
+      <table class="table">
+        <tr>
+          <th>Descrição</th>
+          <td><%= t @place.description %></td>
+        </tr>
+        <tr>
+          <th>Logradouro</th>
+          <td><%= @place.street %></td>
+        </tr>
+        <tr>
+          <th>Cidade</th>
+          <td><%= @place.city %></td>
+        </tr>
+        <tr>
+          <th>Estado</th>
+          <td><%= @place.state %></td>
+        </tr>
+        <tr>
+          <th>Número de Mesas</th>
+          <td><%= @place.number_of_tables %></td>
+        </tr>
+        <tr>
+          <th>Número de Cadeiras</th>
+          <td><%= @place.number_of_chairs %></td>
+        </tr>
+        <tr>
+          <th>Preço por Hora</th>
+          <td><%= @place.price_per_hour %></td>
+        </tr>
+        <tr>
+          <th>Data Inicial</th>
+          <td><%= l @place.start_date %></td>
+        </tr>
+        <tr>
+          <th>Data Final</th>
+          <td><%= l @place.end_date %></td>
+        </tr>
+      </table>
+    </div>
     <h5 class="card-title">Horários</h5>
     <div class="table-responsive">
       <table class='table'>
