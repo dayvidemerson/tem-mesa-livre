@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_place, only: [:show, :edit, :update, :destroy]
+  before_action :set_place, only: [:show, :edit, :update, :destroy, :send_me]
   before_action :authorization_base
   
   has_scope :with_city
