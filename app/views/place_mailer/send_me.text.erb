@@ -1,0 +1,16 @@
+Lugar: <%= t @place.description %>
+Descrição: <%= t @place.description %>
+Logradouro: <%= @place.street %>
+Cidade: <%= @place.city %>
+Estado: <%= @place.state %>
+Número de Mesas: <%= @place.number_of_tables %>
+Número de Cadeiras: <%= @place.number_of_chairs %>
+Preço por Hora: <%= @place.price_per_hour %>
+Data Inicial: <%= l @place.start_date %>
+Data Final: <%= l @place.end_date %>
+
+Horários:
+<% @place.place_schedules.each do |schedule| %>
+Período: <%= l schedule.start, format: '%H:%M' %> hà <%= l schedule.end, format: '%H:%M' %>
+Dias da Semana: <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:sunday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:monday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:tuesday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:wednesday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:thursday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:friday) %><% end %> <% if schedule.saturday? %><%= PlaceSchedule.human_attribute_name(:saturday) %><% end %>
+<% end %>

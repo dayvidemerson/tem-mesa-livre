@@ -47,9 +47,16 @@ class PlacesController < ApplicationController
     end
   end
 
+  # DELETE /places/1
   def destroy
     @place.destroy
     redirect_to places_url, notice: 'Place foi removido com sucesso!.'
+  end
+
+  # POST /places/1/send_me
+  def send_me
+    PlaceMailer.with(user: current_user, place: @place).send_me.deliver_now
+    redirect_to @place, notice: 'E-mail enviado com sucesso!'
   end
 
   private

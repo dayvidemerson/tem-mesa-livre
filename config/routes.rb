@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :places
+  resources :places do
+    post :send_me, on: :member
+  end
+
   resources :professionals do
     get :profile, on: :collection
     post :save_profile, on: :collection

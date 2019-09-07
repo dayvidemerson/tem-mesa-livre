@@ -36,6 +36,14 @@ class PlacePolicy < ApplicationPolicy
     user.admin?
   end
 
+  def destroy?
+    user.admin?
+  end
+
+  def send_me?
+    show?
+  end
+
   def permitted_attributes
     [:description, :street, :city, :state, :number_of_tables, :number_of_chairs, :price_per_hour, :start_date, :end_date, photos: [], photos_attachments_attributes: [:id, :_destroy], place_schedules_attributes: [:id, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :start, :end, :_destroy]]
   end

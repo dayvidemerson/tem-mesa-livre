@@ -26,7 +26,7 @@ class ProfessionalPolicy < ApplicationPolicy
   end
 
   def send_me?
-    user.admin? || user.human_resources?
+    show?
   end
 
   def permitted_attributes
